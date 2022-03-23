@@ -1,20 +1,25 @@
-import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-import { RootTabScreenProps } from '../types';
-import field from '../assets/images/field.jpg';
+import { StyleSheet, SafeAreaView } from 'react-native'
+import Field from '../components/Field'
 
-export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
-  return (
-    <SafeAreaView style={styles.container}>
-      <ImageBackground source={field} resizeMode='contain' style={{width: '100%', aspectRatio: 2 / 3}}></ImageBackground>
-    </SafeAreaView>
-  );
+const players: { [key: string]: null[] } = {
+	FWD: [null, null, null],
+	MID: [null, null, null],
+	DEF: [null, null, null, null],
+	GK: [null],
+}
+
+export default function TabOneScreen() {
+	return (
+		<SafeAreaView style={styles.container}>
+			<Field />
+		</SafeAreaView>
+	)
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-  },
-});
+	container: {
+		// paddingTop: Platform.OS === 'android' ? 25 : 0,
+		flex: 1,
+		alignItems: 'center',
+	},
+})
