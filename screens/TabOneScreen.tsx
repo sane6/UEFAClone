@@ -1,5 +1,5 @@
-import { StyleSheet, SafeAreaView, Pressable, Text, Platform } from 'react-native'
-import { BottomSheetBackdrop } from '@gorhom/bottom-sheet'
+import { StyleSheet, SafeAreaView, Pressable, Text, View, Platform } from 'react-native'
+import BottomSheet from '@gorhom/bottom-sheet'
 import Field from '../components/Field'
 import TeamStats from '../components/TeamStats'
 
@@ -15,6 +15,8 @@ export default function TabOneScreen() {
 		console.warn('View Players')
 	}
 
+	const snapPoints = [0, '50%']
+
 	return (
 		<SafeAreaView style={styles.container}>
 			<TeamStats />
@@ -22,6 +24,12 @@ export default function TabOneScreen() {
 			<Pressable onPress={viewPlayers} style={styles.buttonContainer}>
 				<Text>View Players</Text>
 			</Pressable>
+
+			<BottomSheet index={1} snapPoints={snapPoints}>
+				<BottomSheet index={1} snapPoints={snapPoints}>
+					<Text>Awesome</Text>
+				</BottomSheet>
+			</BottomSheet>
 		</SafeAreaView>
 	)
 }
