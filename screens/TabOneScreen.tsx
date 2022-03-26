@@ -1,21 +1,21 @@
 import { StyleSheet, SafeAreaView, Pressable, Text, View, Platform } from 'react-native'
-import BottomSheet from '@gorhom/bottom-sheet'
+import BottomSheet, { BottomSheetFlatList } from '@gorhom/bottom-sheet'
 import Field from '../components/Field'
 import TeamStats from '../components/TeamStats'
-
-const players: { [key: string]: null[] } = {
-	FWD: [null, null, null],
-	MID: [null, null, null],
-	DEF: [null, null, null, null],
-	GK: [null],
-}
+import { useRef } from 'react'
+import PlayerListItem from '../components/PlayerListItem'
+import { players } from '../assets/data/players'
+import Filters from '../components/Filters'
 
 export default function TabOneScreen() {
 	const viewPlayers = () => {
-		console.warn('View Players')
+		playersBottomSheet.current?.expand()
 	}
 
 	const snapPoints = [0, '50%']
+
+	const playersBottomSheet = useRef<BottomSheet>(null)
+	const filtersBottomSheet = useRef<BottomSheet>(null)
 
 	return (
 		<SafeAreaView style={styles.container}>
@@ -25,10 +25,21 @@ export default function TabOneScreen() {
 				<Text>View Players</Text>
 			</Pressable>
 
-			<BottomSheet index={1} snapPoints={snapPoints}>
-				<BottomSheet index={1} snapPoints={snapPoints}>
-					<Text>Awesome</Text>
-				</BottomSheet>
+			<BottomSheet index={0} snapPoints={snapPoints} ref={playersBottomSheet}>
+				<Pressable
+					onPress={() => {
+						filtersBottomSheet.current?.expand()
+					}}
+					style={styles.buttonContainer}>
+					<Text>View Players</Text>
+				</Pressable>
+				<BottomSheetFlatList
+					data={players}
+					renderItem={({ item }) => <PlayerListItem player={item} />}
+				/>
+			</BottomSheet>
+			<BottomSheet index={0} snapPoints={snapPoints} ref={filtersBottomSheet}>
+				<Filters />
 			</BottomSheet>
 		</SafeAreaView>
 	)
