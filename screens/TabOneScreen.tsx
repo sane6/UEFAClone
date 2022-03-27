@@ -12,7 +12,7 @@ export default function TabOneScreen() {
 		playersBottomSheet.current?.expand()
 	}
 
-	const snapPoints = [0, '50%']
+	const snapPoints = [0, '60%']
 
 	const playersBottomSheet = useRef<BottomSheet>(null)
 	const filtersBottomSheet = useRef<BottomSheet>(null)
@@ -31,7 +31,7 @@ export default function TabOneScreen() {
 						filtersBottomSheet.current?.expand()
 					}}
 					style={styles.buttonContainer}>
-					<Text>View Players</Text>
+					<Text>Filters</Text>
 				</Pressable>
 				<BottomSheetFlatList
 					data={players}

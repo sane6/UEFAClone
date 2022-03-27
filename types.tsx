@@ -46,6 +46,6 @@ export type Player = {
 	name: string
 	match: string
 	price: number
-	position: Positions
+	position: string
 	totalPoints: number
 }
