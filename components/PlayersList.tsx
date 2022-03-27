@@ -3,11 +3,11 @@ import React from 'react'
 import { BottomSheetFlatList } from '@gorhom/bottom-sheet'
 import PlayerListItem from './PlayerListItem'
 
-import { useRecoilState } from 'recoil'
-import { allPlayersState } from '../atoms/Players'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { allPlayersState, filteredPlayers } from '../atoms/Players'
 
 const PlayersList = () => {
-	const [players, setPlayers] = useRecoilState(allPlayersState)
+	const players = useRecoilValue(filteredPlayers)
 
 	return (
 		<BottomSheetFlatList
