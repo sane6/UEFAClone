@@ -1,9 +1,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import { FontAwesome5 } from '@expo/vector-icons'
+import { Player } from '../types'
 
 type FieldPlayerProps = {
-	player: null
+	player: Player
 	position: string
 }
 
@@ -12,7 +13,7 @@ const FieldPlayer = (props: FieldPlayerProps) => {
 
 	return (
 		<View style={{ alignItems: 'center' }}>
-			<FontAwesome5 name="tshirt" size={35} color={player ? '#d170db' : '#5c5c5cbb'} />
+			<FontAwesome5 name="tshirt" size={35} color={player ? 'orange' : '#5c5c5cbb'} />
 			<Text
 				style={{
 					backgroundColor: '#333333bb',
