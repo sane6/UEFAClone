@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Player } from '../types'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { myPlayersState } from '../atoms/MyTeam'
-import { myFormationState } from '../atoms/Players'
+import { myFormationState } from '../atoms/MyTeam'
 
 interface Props {
 	player: Player
@@ -20,7 +20,7 @@ const PlayerListItem = ({ player }: Props) => {
 			if (myPlayers.some((p) => p.id === player.id)) {
 				return currentPlayers.filter((p) => p.id !== player.id)
 			}
-			if (numberOfPlayersOnPosition < myFormation.FWD) {
+			if (numberOfPlayersOnPosition < myFormation[player.position]) {
 				return [...currentPlayers, player]
 			}
 			return currentPlayers

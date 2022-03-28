@@ -23,7 +23,7 @@ const FieldPlayer = (props: FieldPlayerProps) => {
 					padding: 2,
 					paddingHorizontal: 7,
 				}}>
-				{position}
+				{player ? player.name : position}
 			</Text>
 		</View>
 	)

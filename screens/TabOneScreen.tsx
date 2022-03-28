@@ -1,8 +1,8 @@
-import { StyleSheet, SafeAreaView, Pressable, Text, View, Platform } from 'react-native'
+import { StyleSheet, SafeAreaView, Pressable, Text, Platform } from 'react-native'
 import BottomSheet from '@gorhom/bottom-sheet'
 import Field from '../components/Field'
 import TeamStats from '../components/TeamStats'
-import { useRef } from 'react'
+import { Suspense, useRef } from 'react'
 import Filters from '../components/Filters'
 import PlayersList from '../components/PlayersList'
 
@@ -32,7 +32,9 @@ export default function TabOneScreen() {
 					style={styles.buttonContainer}>
 					<Text>Filters</Text>
 				</Pressable>
-				<PlayersList />
+				<Suspense fallback={<Text>Loading</Text>}>
+					<PlayersList />
+				</Suspense>
 			</BottomSheet>
 			<BottomSheet index={0} snapPoints={snapPoints} ref={filtersBottomSheet}>
 				<Filters />

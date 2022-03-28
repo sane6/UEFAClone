@@ -6,6 +6,7 @@
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs'
 import { CompositeScreenProps, NavigatorScreenParams } from '@react-navigation/native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
+import { ValueOf } from 'react-native-gesture-handler/lib/typescript/typeUtils'
 
 declare global {
 	namespace ReactNavigation {
@@ -46,6 +47,6 @@ export type Player = {
 	name: string
 	match: string
 	price: number
-	position: string
+	position: keyof typeof Positions
 	totalPoints: number
 }
