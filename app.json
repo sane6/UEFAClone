@@ -23,9 +23,11 @@
     },
     "android": {
       "adaptiveIcon": {
+        "package": "com.sirmiumerp.fantasy",
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "sirmiumfantasy.apk"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
