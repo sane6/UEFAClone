@@ -27,10 +27,8 @@ const Filters = () => {
 			{positions.map((position) => (
 				<Pressable
 					onPress={() => onFilterPress(position)}
-					style={[
-						styles.filterContainer,
-						{ backgroundColor: isSelected(position) ? 'orange' : '#ddd' },
-					]}>
+					style={[styles.filterContainer, { backgroundColor: isSelected(position) ? 'orange' : '#ddd' }]}
+					key={position}>
 					<Text style={styles.text}>{position}</Text>
 				</Pressable>
 			))}

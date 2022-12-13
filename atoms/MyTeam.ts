@@ -30,11 +30,7 @@ export const myPlayersByPosition = selector({
 			groupedPlayers[position] = players.filter((player) => player.position === position)
 
 			// fill with null values based on formation
-			for (
-				let i: number = groupedPlayers[position]?.length || 0;
-				i < formation[position];
-				i++
-			) {
+			for (let i: number = groupedPlayers[position]?.length || 0; i < formation[position]; i++) {
 				groupedPlayers[position]?.push(null)
 			}
 		})
